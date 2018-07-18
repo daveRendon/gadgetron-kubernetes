@@ -40,7 +40,7 @@ spec:
     spec:
       containers:
       - name: gadgetron
-        image: gadgetron/ubuntu_1804_no_cuda:3.16.0-d98f7a8b
+        image: gadgetron/ubuntu_1804_no_cuda:latest
         resources:
           requests:
             cpu: 500m
