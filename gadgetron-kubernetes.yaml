@@ -17,15 +17,16 @@ spec:
     spec:
       containers:
       - name: gadgetron
-        image: hansenms/gadgetron_ubuntu1804_no_cuda:kub1
+        image: gadgetron/ubuntu_1804_no_cuda:latest
         resources:
           requests:
             cpu: 500m
-        command: ["gadgetron"]
+        command: ["bash", "-c"]
+        args: ["wget https://raw.githubusercontent.com/hansenms/gadgetron-kubernetes/master/gadgetron-kubernetes-entrypoint.sh && chmod +x gadgetron-kubernetes-entrypoint.sh && ./gadgetron-kubernetes-entrypoint.sh"]
         lifecycle:
           preStop:
             exec:
-              command: ["bash","-C","/opt/code/gadgetron/docker/kubernetes/gadgetron_kubernetes_prestop.sh"]
+              command: ["bash","-c","/opt/gadgetron_kubernetes_prestop.sh"]
         ports:
         - containerPort: 9002
         - containerPort: 9080
