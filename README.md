@@ -34,19 +34,7 @@ Deployment Instructions
     kubectl apply -f gadgetron-kubernetes.yaml
     ```
 
-4. Create a cluster role to allow quering services information from the containers:
-
-    ```
-    kubectl apply -f gadgetron-clusterrole.yaml
-    ```
-
-5. Create clusterrole binding
-
-    ```
-    kubectl create clusterrolebinding service-reader-pod --clusterrole=service-reader --serviceaccount=default:default
-    ```
-
-6. Deploy SSH jump server:
+4. Deploy SSH jump server:
 
     See [https://github.com/kubernetes-contrib/jumpserver](https://github.com/kubernetes-contrib/jumpserver) for details.
 

@@ -11,3 +11,4 @@ clusterPort=$(echo $gtservice | jq -r .spec.ports[0].port)
 
 #Run the Gadgetron using load balanced endpoint
 gadgetron -e ${clusterIP}:${clusterPort}
+
